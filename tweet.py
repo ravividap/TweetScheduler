@@ -31,6 +31,9 @@ def tweet_tweet(texttotweetWithDatetime):
         texttotweet = texttotweetWithDatetime[1]
         try:
             for i in range(0, len(texttotweet), tweet_char_limit):
+                if texttotweet.isnumeric():
+                    api.retweet(texttotweet)
+                    continue
                 if(tweetId == ''):
                     tweetObj = api.update_status(texttotweet[i: i + tweet_char_limit])
                 else:
