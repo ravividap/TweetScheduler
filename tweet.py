@@ -5,8 +5,6 @@ import schedule
 import time
 from datetime import datetime, timedelta
 
-date_time_obj = datetime.strptime("20/06/16 04:00", '%y/%m/%d %H:%M')
-
 consumer_key = config.consumer_key
 consumer_secret = config.consumer_secret
 key = config.access_key
