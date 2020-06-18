@@ -44,7 +44,7 @@ def tweet_tweet(texttotweetWithDatetime):
 
 def read_tweets():
     tweetsFile = open('tweetstopost.csv')
-    tweetreader = csv.reader(tweetsFile)
+    tweetreader = csv.reader(tweetsFile, skipinitialspace=True)
     tweetlist = list(tweetreader)
     try:
         for line in tweetlist:
@@ -52,6 +52,8 @@ def read_tweets():
                 tweet_tweet(line)
     except tweepy.TweepError as e:
         print(e.reason)
+
+read_tweets()
 
 schedule.every(1).minutes.do(read_tweets)
 
